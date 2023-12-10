@@ -1,0 +1,529 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="masterModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Condition_ID" />
+          </Key>
+          <Property Name="Condition_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ConditionTitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Enterprise">
+          <Key>
+            <PropertyRef Name="Enterprise_ID" />
+          </Key>
+          <Property Name="Enterprise_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="EnterpriseTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ListOfThing">
+          <Key>
+            <PropertyRef Name="ListOfThing_ID" />
+          </Key>
+          <Property Name="ListOfThing_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Date" Type="date" />
+          <Property Name="Price" Type="int" />
+          <Property Name="Count" Type="int" />
+          <Property Name="Sum" Type="int" />
+          <Property Name="FKThingID" Type="int" />
+          <Property Name="FKConditionID" Type="int" />
+          <Property Name="FKUnitID" Type="int" />
+          <Property Name="FKUserID" Type="int" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RoleTitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Thing">
+          <Key>
+            <PropertyRef Name="Thing_ID" />
+          </Key>
+          <Property Name="Thing_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ThingTitle" Type="nvarchar" MaxLength="50" />
+          <Property Name="InventoryNumber" Type="nvarchar" MaxLength="50" />
+          <Property Name="FKTypeOfThingID" Type="int" />
+        </EntityType>
+        <EntityType Name="TypeOfThing">
+          <Key>
+            <PropertyRef Name="TypeOfThing_ID" />
+          </Key>
+          <Property Name="TypeOfThing_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeOfThingTitle" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Unit_ID" />
+          </Key>
+          <Property Name="Unit_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UnitTitle" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="50" />
+          <Property Name="Login" Type="nvarchar" MaxLength="50" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" />
+          <Property Name="FKRoleID" Type="int" />
+          <Property Name="FKEnterpriseID" Type="int" />
+          <Property Name="ImageUsers" Type="image" />
+        </EntityType>
+        <Association Name="FK_Condition_ID">
+          <End Role="Condition" Type="Self.Condition" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="Condition_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKConditionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enterprise_ID">
+          <End Role="Enterprise" Type="Self.Enterprise" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterprise">
+              <PropertyRef Name="Enterprise_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="FKEnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_ID">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="FKRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thing_ID">
+          <End Role="Thing" Type="Self.Thing" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thing">
+              <PropertyRef Name="Thing_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKThingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeOfThing_ID">
+          <End Role="TypeOfThing" Type="Self.TypeOfThing" Multiplicity="0..1" />
+          <End Role="Thing" Type="Self.Thing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfThing">
+              <PropertyRef Name="TypeOfThing_ID" />
+            </Principal>
+            <Dependent Role="Thing">
+              <PropertyRef Name="FKTypeOfThingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_ID">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_ID">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="masterModelStoreContainer">
+          <EntitySet Name="Condition" EntityType="Self.Condition" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Enterprise" EntityType="Self.Enterprise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ListOfThing" EntityType="Self.ListOfThing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Thing" EntityType="Self.Thing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TypeOfThing" EntityType="Self.TypeOfThing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Unit" EntityType="Self.Unit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Condition_ID" Association="Self.FK_Condition_ID">
+            <End Role="Condition" EntitySet="Condition" />
+            <End Role="ListOfThing" EntitySet="ListOfThing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enterprise_ID" Association="Self.FK_Enterprise_ID">
+            <End Role="Enterprise" EntitySet="Enterprise" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_ID" Association="Self.FK_Role_ID">
+            <End Role="Role" EntitySet="Role" />
+            <End Role="User" EntitySet="User" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thing_ID" Association="Self.FK_Thing_ID">
+            <End Role="Thing" EntitySet="Thing" />
+            <End Role="ListOfThing" EntitySet="ListOfThing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeOfThing_ID" Association="Self.FK_TypeOfThing_ID">
+            <End Role="TypeOfThing" EntitySet="TypeOfThing" />
+            <End Role="Thing" EntitySet="Thing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_ID" Association="Self.FK_Unit_ID">
+            <End Role="Unit" EntitySet="Unit" />
+            <End Role="ListOfThing" EntitySet="ListOfThing" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_ID" Association="Self.FK_User_ID">
+            <End Role="User" EntitySet="User" />
+            <End Role="ListOfThing" EntitySet="ListOfThing" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="masterModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Condition">
+          <Key>
+            <PropertyRef Name="Condition_ID" />
+          </Key>
+          <Property Name="Condition_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ConditionTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="ListOfThing" Relationship="Self.FK_Condition_ID" FromRole="Condition" ToRole="ListOfThing" />
+        </EntityType>
+        <EntityType Name="Enterprise">
+          <Key>
+            <PropertyRef Name="Enterprise_ID" />
+          </Key>
+          <Property Name="Enterprise_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="EnterpriseTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Address" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Enterprise_ID" FromRole="Enterprise" ToRole="User" />
+        </EntityType>
+        <EntityType Name="ListOfThing">
+          <Key>
+            <PropertyRef Name="ListOfThing_ID" />
+          </Key>
+          <Property Name="ListOfThing_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Date" Type="DateTime" Precision="0" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="Count" Type="Int32" />
+          <Property Name="Sum" Type="Int32" />
+          <Property Name="FKThingID" Type="Int32" />
+          <Property Name="FKConditionID" Type="Int32" />
+          <Property Name="FKUnitID" Type="Int32" />
+          <Property Name="FKUserID" Type="Int32" />
+          <NavigationProperty Name="Condition" Relationship="Self.FK_Condition_ID" FromRole="ListOfThing" ToRole="Condition" />
+          <NavigationProperty Name="Thing" Relationship="Self.FK_Thing_ID" FromRole="ListOfThing" ToRole="Thing" />
+          <NavigationProperty Name="Unit" Relationship="Self.FK_Unit_ID" FromRole="ListOfThing" ToRole="Unit" />
+          <NavigationProperty Name="User" Relationship="Self.FK_User_ID" FromRole="ListOfThing" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Role">
+          <Key>
+            <PropertyRef Name="Role_ID" />
+          </Key>
+          <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RoleTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="User" Relationship="Self.FK_Role_ID" FromRole="Role" ToRole="User" />
+        </EntityType>
+        <EntityType Name="Thing">
+          <Key>
+            <PropertyRef Name="Thing_ID" />
+          </Key>
+          <Property Name="Thing_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ThingTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="InventoryNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FKTypeOfThingID" Type="Int32" />
+          <NavigationProperty Name="ListOfThing" Relationship="Self.FK_Thing_ID" FromRole="Thing" ToRole="ListOfThing" />
+          <NavigationProperty Name="TypeOfThing" Relationship="Self.FK_TypeOfThing_ID" FromRole="Thing" ToRole="TypeOfThing" />
+        </EntityType>
+        <EntityType Name="TypeOfThing">
+          <Key>
+            <PropertyRef Name="TypeOfThing_ID" />
+          </Key>
+          <Property Name="TypeOfThing_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeOfThingTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Thing" Relationship="Self.FK_TypeOfThing_ID" FromRole="TypeOfThing" ToRole="Thing" />
+        </EntityType>
+        <EntityType Name="Unit">
+          <Key>
+            <PropertyRef Name="Unit_ID" />
+          </Key>
+          <Property Name="Unit_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UnitTitle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="ListOfThing" Relationship="Self.FK_Unit_ID" FromRole="Unit" ToRole="ListOfThing" />
+        </EntityType>
+        <EntityType Name="User">
+          <Key>
+            <PropertyRef Name="User_ID" />
+          </Key>
+          <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Login" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="FKRoleID" Type="Int32" />
+          <Property Name="FKEnterpriseID" Type="Int32" />
+          <NavigationProperty Name="Enterprise" Relationship="Self.FK_Enterprise_ID" FromRole="User" ToRole="Enterprise" />
+          <NavigationProperty Name="ListOfThing" Relationship="Self.FK_User_ID" FromRole="User" ToRole="ListOfThing" />
+          <NavigationProperty Name="Role" Relationship="Self.FK_Role_ID" FromRole="User" ToRole="Role" />
+          <Property Name="ImageUsers" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Condition_ID">
+          <End Role="Condition" Type="Self.Condition" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Condition">
+              <PropertyRef Name="Condition_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKConditionID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Enterprise_ID">
+          <End Role="Enterprise" Type="Self.Enterprise" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Enterprise">
+              <PropertyRef Name="Enterprise_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="FKEnterpriseID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Thing_ID">
+          <End Role="Thing" Type="Self.Thing" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Thing">
+              <PropertyRef Name="Thing_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKThingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Unit_ID">
+          <End Role="Unit" Type="Self.Unit" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Unit">
+              <PropertyRef Name="Unit_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKUnitID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_User_ID">
+          <End Role="User" Type="Self.User" Multiplicity="0..1" />
+          <End Role="ListOfThing" Type="Self.ListOfThing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="User">
+              <PropertyRef Name="User_ID" />
+            </Principal>
+            <Dependent Role="ListOfThing">
+              <PropertyRef Name="FKUserID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Role_ID">
+          <End Role="Role" Type="Self.Role" Multiplicity="0..1" />
+          <End Role="User" Type="Self.User" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Role">
+              <PropertyRef Name="Role_ID" />
+            </Principal>
+            <Dependent Role="User">
+              <PropertyRef Name="FKRoleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_TypeOfThing_ID">
+          <End Role="TypeOfThing" Type="Self.TypeOfThing" Multiplicity="0..1" />
+          <End Role="Thing" Type="Self.Thing" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TypeOfThing">
+              <PropertyRef Name="TypeOfThing_ID" />
+            </Principal>
+            <Dependent Role="Thing">
+              <PropertyRef Name="FKTypeOfThingID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbData" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Conditions" EntityType="Self.Condition" />
+          <EntitySet Name="Enterprises" EntityType="Self.Enterprise" />
+          <EntitySet Name="ListOfThings" EntityType="Self.ListOfThing" />
+          <EntitySet Name="Roles" EntityType="Self.Role" />
+          <EntitySet Name="Things" EntityType="Self.Thing" />
+          <EntitySet Name="TypeOfThings" EntityType="Self.TypeOfThing" />
+          <EntitySet Name="Units" EntityType="Self.Unit" />
+          <EntitySet Name="Users" EntityType="Self.User" />
+          <AssociationSet Name="FK_Condition_ID" Association="Self.FK_Condition_ID">
+            <End Role="Condition" EntitySet="Conditions" />
+            <End Role="ListOfThing" EntitySet="ListOfThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Enterprise_ID" Association="Self.FK_Enterprise_ID">
+            <End Role="Enterprise" EntitySet="Enterprises" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Thing_ID" Association="Self.FK_Thing_ID">
+            <End Role="Thing" EntitySet="Things" />
+            <End Role="ListOfThing" EntitySet="ListOfThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Unit_ID" Association="Self.FK_Unit_ID">
+            <End Role="Unit" EntitySet="Units" />
+            <End Role="ListOfThing" EntitySet="ListOfThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_User_ID" Association="Self.FK_User_ID">
+            <End Role="User" EntitySet="Users" />
+            <End Role="ListOfThing" EntitySet="ListOfThings" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Role_ID" Association="Self.FK_Role_ID">
+            <End Role="Role" EntitySet="Roles" />
+            <End Role="User" EntitySet="Users" />
+          </AssociationSet>
+          <AssociationSet Name="FK_TypeOfThing_ID" Association="Self.FK_TypeOfThing_ID">
+            <End Role="TypeOfThing" EntitySet="TypeOfThings" />
+            <End Role="Thing" EntitySet="Things" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="dbData">
+          <EntitySetMapping Name="Conditions">
+            <EntityTypeMapping TypeName="masterModel.Condition">
+              <MappingFragment StoreEntitySet="Condition">
+                <ScalarProperty Name="Condition_ID" ColumnName="Condition_ID" />
+                <ScalarProperty Name="ConditionTitle" ColumnName="ConditionTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Enterprises">
+            <EntityTypeMapping TypeName="masterModel.Enterprise">
+              <MappingFragment StoreEntitySet="Enterprise">
+                <ScalarProperty Name="Enterprise_ID" ColumnName="Enterprise_ID" />
+                <ScalarProperty Name="EnterpriseTitle" ColumnName="EnterpriseTitle" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ListOfThings">
+            <EntityTypeMapping TypeName="masterModel.ListOfThing">
+              <MappingFragment StoreEntitySet="ListOfThing">
+                <ScalarProperty Name="ListOfThing_ID" ColumnName="ListOfThing_ID" />
+                <ScalarProperty Name="Date" ColumnName="Date" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="Count" ColumnName="Count" />
+                <ScalarProperty Name="Sum" ColumnName="Sum" />
+                <ScalarProperty Name="FKThingID" ColumnName="FKThingID" />
+                <ScalarProperty Name="FKConditionID" ColumnName="FKConditionID" />
+                <ScalarProperty Name="FKUnitID" ColumnName="FKUnitID" />
+                <ScalarProperty Name="FKUserID" ColumnName="FKUserID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Roles">
+            <EntityTypeMapping TypeName="masterModel.Role">
+              <MappingFragment StoreEntitySet="Role">
+                <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+                <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Things">
+            <EntityTypeMapping TypeName="masterModel.Thing">
+              <MappingFragment StoreEntitySet="Thing">
+                <ScalarProperty Name="Thing_ID" ColumnName="Thing_ID" />
+                <ScalarProperty Name="ThingTitle" ColumnName="ThingTitle" />
+                <ScalarProperty Name="InventoryNumber" ColumnName="InventoryNumber" />
+                <ScalarProperty Name="FKTypeOfThingID" ColumnName="FKTypeOfThingID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TypeOfThings">
+            <EntityTypeMapping TypeName="masterModel.TypeOfThing">
+              <MappingFragment StoreEntitySet="TypeOfThing">
+                <ScalarProperty Name="TypeOfThing_ID" ColumnName="TypeOfThing_ID" />
+                <ScalarProperty Name="TypeOfThingTitle" ColumnName="TypeOfThingTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Units">
+            <EntityTypeMapping TypeName="masterModel.Unit">
+              <MappingFragment StoreEntitySet="Unit">
+                <ScalarProperty Name="Unit_ID" ColumnName="Unit_ID" />
+                <ScalarProperty Name="UnitTitle" ColumnName="UnitTitle" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Users">
+            <EntityTypeMapping TypeName="masterModel.User">
+              <MappingFragment StoreEntitySet="User">
+                <ScalarProperty Name="ImageUsers" ColumnName="ImageUsers" />
+                <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Login" ColumnName="Login" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+                <ScalarProperty Name="FKRoleID" ColumnName="FKRoleID" />
+                <ScalarProperty Name="FKEnterpriseID" ColumnName="FKEnterpriseID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

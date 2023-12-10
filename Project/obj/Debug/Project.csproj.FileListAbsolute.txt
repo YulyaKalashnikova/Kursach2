@@ -1,0 +1,72 @@
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\Project.exe.config
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\Project.exe
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\Project.pdb
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\EntityFramework.dll
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\EntityFramework.xml
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
+Z:\2 курс\Курсовая работа №2\Project\Project\bin\Debug\ru\EntityFramework.resources.dll
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.ResolveComReference.cache
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\AuthorizationWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\NewPassWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\App.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project_Content.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project_MarkupCompile.cache
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project_MarkupCompile.lref
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\AuthorizationWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\NewPassWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.g.resources
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.Properties.Resources.resources
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.CopyComplete
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.exe
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.pdb
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\EnterptisesWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\ThingWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\ListOfThingWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\UserWindow.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Osnova.g.cs
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\EnterptisesWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Osnova.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\ThingWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\ListOfThingWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Windows\UserWindow.baml
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+Z:\2 курс\Курсовая работа №2\Project\Project\obj\Debug\Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\Project.exe.config
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\Project.exe
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\Project.pdb
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\EntityFramework.dll
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\EntityFramework.xml
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Julya\Desktop\sss\Project\Project\bin\Debug\ru\EntityFramework.resources.dll
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.AssemblyReference.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.SuggestedBindingRedirects.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.ResolveComReference.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\AuthorizationWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\EnterptisesWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\NewPassWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Osnova.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\ThingWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\ListOfThingWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\UserWindow.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\App.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project_Content.g.cs
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project_MarkupCompile.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project_MarkupCompile.lref
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\AuthorizationWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\EnterptisesWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\NewPassWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Osnova.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\ThingWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\ListOfThingWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Windows\UserWindow.baml
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.g.resources
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.Properties.Resources.resources
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.GenerateResource.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.CoreCompileInputs.cache
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.csproj.CopyComplete
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.exe
+C:\Users\Julya\Desktop\sss\Project\Project\obj\Debug\Project.pdb

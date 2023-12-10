@@ -1,0 +1,87 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="masterModelStoreContainer" CdmEntityContainer="dbData">
+    <EntitySetMapping Name="Conditions">
+      <EntityTypeMapping TypeName="masterModel.Condition">
+        <MappingFragment StoreEntitySet="Condition">
+          <ScalarProperty Name="Condition_ID" ColumnName="Condition_ID" />
+          <ScalarProperty Name="ConditionTitle" ColumnName="ConditionTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Enterprises">
+      <EntityTypeMapping TypeName="masterModel.Enterprise">
+        <MappingFragment StoreEntitySet="Enterprise">
+          <ScalarProperty Name="Enterprise_ID" ColumnName="Enterprise_ID" />
+          <ScalarProperty Name="EnterpriseTitle" ColumnName="EnterpriseTitle" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ListOfThings">
+      <EntityTypeMapping TypeName="masterModel.ListOfThing">
+        <MappingFragment StoreEntitySet="ListOfThing">
+          <ScalarProperty Name="ListOfThing_ID" ColumnName="ListOfThing_ID" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Count" ColumnName="Count" />
+          <ScalarProperty Name="Sum" ColumnName="Sum" />
+          <ScalarProperty Name="FKThingID" ColumnName="FKThingID" />
+          <ScalarProperty Name="FKConditionID" ColumnName="FKConditionID" />
+          <ScalarProperty Name="FKUnitID" ColumnName="FKUnitID" />
+          <ScalarProperty Name="FKUserID" ColumnName="FKUserID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="masterModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+          <ScalarProperty Name="RoleTitle" ColumnName="RoleTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Things">
+      <EntityTypeMapping TypeName="masterModel.Thing">
+        <MappingFragment StoreEntitySet="Thing">
+          <ScalarProperty Name="Thing_ID" ColumnName="Thing_ID" />
+          <ScalarProperty Name="ThingTitle" ColumnName="ThingTitle" />
+          <ScalarProperty Name="InventoryNumber" ColumnName="InventoryNumber" />
+          <ScalarProperty Name="FKTypeOfThingID" ColumnName="FKTypeOfThingID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TypeOfThings">
+      <EntityTypeMapping TypeName="masterModel.TypeOfThing">
+        <MappingFragment StoreEntitySet="TypeOfThing">
+          <ScalarProperty Name="TypeOfThing_ID" ColumnName="TypeOfThing_ID" />
+          <ScalarProperty Name="TypeOfThingTitle" ColumnName="TypeOfThingTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Units">
+      <EntityTypeMapping TypeName="masterModel.Unit">
+        <MappingFragment StoreEntitySet="Unit">
+          <ScalarProperty Name="Unit_ID" ColumnName="Unit_ID" />
+          <ScalarProperty Name="UnitTitle" ColumnName="UnitTitle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="masterModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="ImageUsers" ColumnName="ImageUsers" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="Phone" ColumnName="Phone" />
+          <ScalarProperty Name="Login" ColumnName="Login" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="FKRoleID" ColumnName="FKRoleID" />
+          <ScalarProperty Name="FKEnterpriseID" ColumnName="FKEnterpriseID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
